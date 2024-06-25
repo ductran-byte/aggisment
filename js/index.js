@@ -1,22 +1,14 @@
-document.querySelector("form").addEventListener("submit", (e) => {
-  e.preventDefault();
+function submitComment() {
+  const textarea = document.getElementById('from');
+  const feedback = document.getElementById('feedback');
 
-  const comment = document.getElementById("comment");
-  const message = document.getElementById("message");
-  if (comment.value.length == 0) {
-    // show message
-    message.style.display = "block";
-    console.log("not ok");
+  if (textarea.value.trim() === '') {
+    feedback.style.display = 'block';
   } else {
-    // hide messsage
-    message.style.display = "none";
-    alert("Thanks for your comments");
-    comment.value = "";
-    comment.focus();
+    // Process the comment (e.g., send it to the server)
+    // ...
+    // Clear the textarea and hide the feedback message
+    textarea.value = '';
+    feedback.style.display = 'none';
   }
-});
-
-document.querySelector("textarea").addEventListener("keyup", () => {
-  // hide message
-  document.getElementById("message").style.display = "none";
-});
+}
